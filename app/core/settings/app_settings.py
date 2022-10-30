@@ -33,6 +33,8 @@ class AppSettings(BaseAppSettings):
 
     logging_level: int = logging.INFO
     loggers: Tuple[str, str] = ("uvicorn.asgi", "uvicorn.access")
+    file_path: str = ("logs/",)
+    logging_format: str = "%(asctime)s [%(levelname)s] (%(name)s) %(message)s"  # YYYY-MM-dd HH:mm:ss(ms) [LEVEL] (LOGGER) message
 
     class Config:
         validate_assignment = True
