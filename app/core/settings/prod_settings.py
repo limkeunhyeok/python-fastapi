@@ -5,9 +5,9 @@ from app.core.settings.app_settings import AppSettings
 class ProdAppSettings(AppSettings):
     debug: bool = True
 
-    title: str = "Python boilerplate for local"
+    title: str = "Python boilerplate for prod"
 
     logging_level: int = logging.DEBUG
 
     class Config(AppSettings.Config):
-        env_file = ".env.production"
+        env_file = ".env.prod"

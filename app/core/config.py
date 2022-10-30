@@ -1,4 +1,7 @@
+from asyncio import constants
 from functools import lru_cache
+import os
+import sys
 from typing import Dict, Type
 
 from app.core.settings.base_settings import BaseAppSettings, AppEnvTypes
@@ -16,6 +19,6 @@ environments: Dict[AppEnvTypes, Type[AppSettings]] = {
 
 @lru_cache
 def get_app_settings() -> AppSettings:
-    app_env = BaseAppSettings().app_env
-    config = environments[app_env]
+    app_env = sys.argv[1] if len(sys.argv) > 1 else 'prod'
+    config = environments[AppEnvTypes[app_env]]
     return config()
