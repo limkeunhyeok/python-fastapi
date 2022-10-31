@@ -23,3 +23,8 @@ def get_application() -> FastAPI:
 
 
 app = get_application()
+
+
+@app.get("/")
+def test():
+    return {"message": "hello world"}

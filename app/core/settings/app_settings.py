@@ -4,7 +4,7 @@ import sys
 from typing import Any, Dict, List, Tuple
 from loguru import logger
 from app.core.settings.base_settings import BaseAppSettings
-from app.core.logging import InterceptHandler
+from app.common.logging.interceptor import InterceptHandler
 
 
 class AppSettings(BaseAppSettings):
@@ -33,7 +33,7 @@ class AppSettings(BaseAppSettings):
 
     logging_level: int = logging.INFO
     loggers: Tuple[str, str] = ("uvicorn.asgi", "uvicorn.access")
-    file_path: str = ("logs/",)
+    file_path: str = "logs/"
     logging_format: str = "%(asctime)s [%(levelname)s] (%(name)s) %(message)s"  # YYYY-MM-dd HH:mm:ss(ms) [LEVEL] (LOGGER) message
 
     class Config:
