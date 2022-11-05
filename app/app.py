@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 from app.core.config import get_app_settings
 from app.common.exception.http_exception import http_exception_handler
 from app.common.exception.validation_exception import http_validation_exception_handler
+import os
 
 
 def get_application() -> FastAPI:

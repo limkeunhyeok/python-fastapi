@@ -17,7 +17,10 @@ class AppSettings(BaseAppSettings):
     description: str = "Python boilplate server with fastapi"
     version: str = "0.1.0"
 
-    database_url: str = f"mongodb://{os.getenv('MONGODB_USER')}:{os.getenv('MONGODB_PASSWORD')}@{os.getenv('MONGODB_IP')}:{os.getenv('MONGODB_PORT')}"
+    db_user: str = os.getenv("DB_USER")
+    db_pass: str = os.getenv("DB_PASS")
+    db_url: str = os.getenv("DB_URL")
+    db_port: str = os.getenv("DB_PORT")
 
     app_host: str = os.getenv("APP_HOST")
     app_port: int = os.getenv("APP_PORT")
