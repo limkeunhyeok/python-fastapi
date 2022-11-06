@@ -5,13 +5,15 @@ from starlette.middleware.cors import CORSMiddleware
 from app.core.config import get_app_settings
 from app.common.exception.http_exception import http_exception_handler
 from app.common.exception.validation_exception import http_validation_exception_handler
-import os
+from app.database.session import create_tables
 
 
 def get_application() -> FastAPI:
     settings = get_app_settings()
 
     settings.configure_logging()
+
+    create_tables()
 
     application = FastAPI(**settings.fastapi_kwargs)
 

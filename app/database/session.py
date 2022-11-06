@@ -8,8 +8,8 @@ from app.core.config import get_app_settings
 app_settings = get_app_settings()
 
 Base = declarative_base()
-
-engine = create_engine(app_settings.database_url, echo=True)
+db = f"mysql+pymysql://{app_settings.db_user}:{app_settings.db_pass}@{app_settings.db_url}:{app_settings.db_port}/{app_settings.db_name}"
+engine = create_engine(db, echo=True)
 Session = sessionmaker(bind=engine)
 
 

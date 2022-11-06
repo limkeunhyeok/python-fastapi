@@ -9,6 +9,7 @@ uvicorn = "*"
 loguru = "*"
 sqlalchemy = "*"
 python-dotenv = "*"
+pymysql = "*"
 
 [dev-packages]
 black = "*"
