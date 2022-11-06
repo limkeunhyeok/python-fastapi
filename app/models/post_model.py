@@ -8,7 +8,6 @@ class Post(BaseModel):
 
     title = Column(String, nullable=False)
     description = Column(Text)
-    username = Column(String, nullable=False)
     user_id = Column(
         Integer, ForeignKey("user.id", ondelete="CASCADE"), primary_key=True
     )
