@@ -1,10 +1,14 @@
 from fastapi import APIRouter
+from app.database.repositories.posts import PostsRepository
 
 router = APIRouter()
+# postsRepository = PostsRepository()
 
 
 @router.get("/")
 def get_posts():
+    # entities = postsRepository.find_all()
+    # return entities
     pass
 
 

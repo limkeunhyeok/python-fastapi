@@ -1,11 +1,14 @@
 from fastapi import APIRouter
+from app.database.repositories.users import UsersRepository
 
 router = APIRouter()
+usersRepository = UsersRepository()
 
 
 @router.get("/")
 def get_users():
-    pass
+    entities = usersRepository.find_all()
+    return entities
 
 
 @router.put("/")

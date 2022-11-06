@@ -6,6 +6,7 @@ from app.core.config import get_app_settings
 from app.common.exception.http_exception import http_exception_handler
 from app.common.exception.validation_exception import http_validation_exception_handler
 from app.database.session import create_tables
+from app.api.routes.api import router as api_router
 
 
 def get_application() -> FastAPI:
@@ -29,6 +30,8 @@ def get_application() -> FastAPI:
     application.add_exception_handler(
         RequestValidationError, http_validation_exception_handler
     )
+
+    application.include_router(api_router)
 
     return application
 
